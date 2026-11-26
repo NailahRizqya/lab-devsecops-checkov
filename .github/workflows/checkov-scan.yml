@@ -1,3 +1,4 @@
+
 name: "IaC Security Scan dengan Checkov"
 
 on:
@@ -68,13 +69,13 @@ jobs:
         if: always() && hashFiles('checkov-terraform.sarif') != ''
         with:
           sarif_file: checkov-terraform.sarif
-          category: "checkov-terraform"
+          category: checkov-terraform
 
       - name: "Block pipeline jika ditemukan pelanggaran di Terraform"
         if: steps.checkov-terraform.outcome == 'failure'
         run: |
           echo "Checkov menemukan pelanggaran keamanan pada Terraform!"
-          echo "Periksa log job atau tab Security -> Code scanning untuk detail."
+          echo "Periksa log job atau tab Security -> Code scanning."
           exit 1
 
       - name: "Report sukses"
