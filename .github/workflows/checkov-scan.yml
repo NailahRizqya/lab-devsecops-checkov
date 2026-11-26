@@ -9,6 +9,8 @@ on:
       - "terraform/**"
       - "kubernetes/**"
       - "dockerfile/**"
+      - ".github/workflows/**"
+
   pull_request:
     branches:
       - main
@@ -16,6 +18,7 @@ on:
       - "terraform/**"
       - "kubernetes/**"
       - "dockerfile/**"
+      - ".github/workflows/**"
 
 permissions:
   contents: read
