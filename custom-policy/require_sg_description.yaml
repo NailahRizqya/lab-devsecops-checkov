@@ -1,0 +1,17 @@
+metadata:
+  id: "CUSTOM_AWS_002"
+  name: "Ensure Security Group has non-empty description (YAML Policy)"
+  category: "NETWORKING"
+definition:
+  and:
+    - cond_type: "attribute"
+      resource_types:
+        - "aws_security_group"
+      attribute: "description"
+      operator: "exists"
+    - cond_type: "attribute"
+      resource_types:
+        - "aws_security_group"
+      attribute: "description"
+      operator: "not_equals"
+      value: "Managed by Terraform"
